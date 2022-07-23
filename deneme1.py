@@ -40,5 +40,11 @@ time.sleep(1)
 
 current_link = browser.current_url
 r = requests.get(current_link)
-print(r.content)
+soup = BeautifulSoup(r.content , 'html.parser')
+
+# order =soup.find(By.XPATH,"/html/body/div/div[3]/div[2]/div/div/div[3]")
+orders =soup.find(By.XPATH,"/html/body/div/div[3]/div[2]/div/div/div[3]/div")
+
+for order in orders:
+    print(order)
 
